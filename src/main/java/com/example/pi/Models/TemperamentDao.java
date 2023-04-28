@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface DogDao extends CrudRepository<Dog, UUID> {
-    public boolean existsByName(String name);
+public interface TemperamentDao extends CrudRepository<Temperament, UUID> {
 }

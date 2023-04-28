@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -30,7 +32,13 @@ public class Dog implements Serializable {
     private String height;
     @Column(name="life_span")
     private String life_span;
-    @Column(name="image")
+    @Column(name="image", length = 2000, columnDefinition = "TEXT")
     private String image;
 
+   // @ManyToMany(fetch = FetchType.LAZY)
+   // @JoinTable(name = "dog_temperament",
+   //         joinColumns = @JoinColumn(name = "dog_id"),
+   //         inverseJoinColumns = @JoinColumn(name = "temperament_id"))
+   // private Set<Temperament> temperaments = new HashSet<>();
 }
+

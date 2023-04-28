@@ -24,4 +24,8 @@ public class DogDto {
     private String life_span;
     @NotEmpty
     private String image;
+
 }
+
+
+
