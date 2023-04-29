@@ -7,6 +7,6 @@ import java.util.UUID;
 public interface TemperamentService {
     public List<Temperament> getApiTemperaments();
     public List<Temperament> getAllTemperaments();
-    public Temperament postTemperament();
+    public Temperament postTemperament(String temperament);
 
 }

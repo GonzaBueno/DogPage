@@ -26,7 +26,7 @@ public class Temperament implements Serializable {
     @Column(name="name")
     private String name;
 
-   // @ManyToMany(mappedBy = "temperaments")
-   // private Set<Dog> dogs = new HashSet<>();
+    @ManyToMany(mappedBy = "temperaments")
+    private Set<Dog> dogs = new HashSet<>();
 
 }

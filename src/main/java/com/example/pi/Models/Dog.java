@@ -35,10 +35,10 @@ public class Dog implements Serializable {
     @Column(name="image", length = 2000, columnDefinition = "TEXT")
     private String image;
 
-   // @ManyToMany(fetch = FetchType.LAZY)
-   // @JoinTable(name = "dog_temperament",
-   //         joinColumns = @JoinColumn(name = "dog_id"),
-   //         inverseJoinColumns = @JoinColumn(name = "temperament_id"))
-   // private Set<Temperament> temperaments = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "dog_temperament",
+            joinColumns = @JoinColumn(name = "dog_id"),
+            inverseJoinColumns = @JoinColumn(name = "temperament_id"))
+   private Set<Temperament> temperaments = new HashSet<>();
 }
 
