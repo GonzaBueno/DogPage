@@ -7,11 +7,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -68,16 +72,16 @@ public class DogServiceImp implements DogService {
                 image = (String) imageObj;
             }
 
-            DogDto dog = DogDto.builder()
+            Dog dog = Dog.builder()
                     .name(apiDog.getName())
                     .weight(weight)
                     .height(height)
                     .life_span(lifeSpan)
                     .image(image)
                     .build();
-           // dog.setId(UUID.randomUUID());
-           // dogs.add(dog);
-            postDog(dog);
+            dog.setId(UUID.randomUUID());
+            dogs.add(dog);
+            //postDog(dog);
         }
         return dogs;
     }
@@ -99,6 +103,11 @@ public class DogServiceImp implements DogService {
 
         if (dogDao.existsByName(dogDto.getName())) {
             throw new RuntimeException("EL NOMBRE DEL PERRO YA ESTA EN USO");
+        }
+        try {
+            URL url = new URL(dogDto.getImage());
+        } catch (MalformedURLException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La URL de la imagen no es válida");
         }
 
         Dog dog = Dog.builder()
