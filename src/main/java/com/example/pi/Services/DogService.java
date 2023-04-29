@@ -2,10 +2,12 @@ package com.example.pi.Services;
 
 import com.example.pi.Models.Dog;
 import com.example.pi.Models.DogDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public interface DogService {
     public List<Dog> getDataBaseDogs();
     public List<Dog> getApiDogs();

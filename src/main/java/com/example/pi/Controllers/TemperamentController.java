@@ -1,6 +1,7 @@
 package com.example.pi.Controllers;
 
 import com.example.pi.Models.Temperament;
+import com.example.pi.Models.TemperamentDao;
 import com.example.pi.Services.TemperamentService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -9,17 +10,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Slf4j
-@Controller
+@RestController
+@RequestMapping("temperaments")
 public class TemperamentController {
-    @Autowired
+    @Autowired(required = true)
     private TemperamentService temperamentService;
+    @Autowired
+    private TemperamentDao temperamentDao;
 
     @GetMapping("/temperaments")
     public ResponseEntity<List<Temperament>> get(Model model){

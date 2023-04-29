@@ -1,9 +1,12 @@
 package com.example.pi.Services;
 
 import com.example.pi.Models.Temperament;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public interface TemperamentService {
     public List<Temperament> getApiTemperaments();
     public List<Temperament> getAllTemperaments();

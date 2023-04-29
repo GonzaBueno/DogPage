@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Slf4j
-@Controller
+@RestController
 public class DogController {
     @Autowired
     private DogService dogService;
