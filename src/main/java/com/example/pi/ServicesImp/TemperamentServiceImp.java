@@ -54,9 +54,8 @@ public class TemperamentServiceImp implements TemperamentService {
 
     @Override
     public Temperament postTemperament(String temperament) {
-       // if (temperamentDao.existsByName(temperament.getName())) {
-       //     throw new RuntimeException("EL NOMBRE DEL TEMPERAMENTO YA ESTA EN USO");
-      //  }
+       // if (temperamentDao.existsByName(temperament)) {
+       //     throw new RuntimeException("EL NOMBRE DEL TEMPERAMENTO YA ESTA EN USO");//}
         Temperament newTemp = Temperament.builder()
                 .name(temperament).build();
 
