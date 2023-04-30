@@ -116,7 +116,7 @@ public class DogServiceImp implements DogService {
                 .height(dogDto.getHeight())
                 .life_span(dogDto.getLife_span())
                 .image(dogDto.getImage()).build();
-        //dog.setTemperaments(new HashSet<>(dog.getTemperaments()));
+        dog.setTemperaments(new HashSet<>(dog.getTemperaments()));
         return dogDao.save(dog);
     }
 
