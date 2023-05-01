@@ -1,4 +1,4 @@
-package com.example.pi.Models;
+package com.example.pi.Controllers.Dtos;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.pi.Controllers;
 
 import com.example.pi.Models.Dog;
-import com.example.pi.Models.DogDto;
+import com.example.pi.Controllers.Dtos.DogDto;
 import com.example.pi.Services.DogService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 

@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("temperaments")
 public class TemperamentController {
-    @Autowired(required = true)
+    @Autowired
     private TemperamentService temperamentService;
     @Autowired
     private TemperamentDao temperamentDao;
@@ -28,6 +28,12 @@ public class TemperamentController {
         List<Temperament> temperaments = temperamentService.getAllTemperaments();
         return new ResponseEntity<>(temperaments, HttpStatus.OK);
     }
+    @GetMapping("/temperamentsApi")
+    public ResponseEntity<List<Temperament>> getApi(){
+        List<Temperament> temperaments = temperamentService.getApiTemperaments();
+        return new ResponseEntity<>(temperaments, HttpStatus.OK);
+    }
+
     @PostMapping("/temperaments/newTemp")
     public ResponseEntity<String> post(@Valid @RequestBody String temperament){
         temperamentService.postTemperament(temperament);

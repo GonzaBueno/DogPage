@@ -1,9 +1,8 @@
 package com.example.pi.ServicesImp;
 
+import com.example.pi.Controllers.Dtos.DogDto;
 import com.example.pi.Models.*;
 import com.example.pi.Services.DogService;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
